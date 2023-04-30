@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Clock</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="shortcut icon" href="./img/relogio.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="topo">
+        <div class="logo" onclick="window.location.href = 'index.html';">
+            <img src="./img/relogio.png" alt="" id="logo">
+            <span class="logo-texto">Easy Clock</span>
+        </div>
+
+        <img src="./img/filtro.png" alt="" id="tema">
+    </header>
+
+    <div class="container">
+        <div class="menuLateral">
+            <ul id="menu">
+                <div class="menu-1">
+                    <div id="relogio" onclick="window.location.href = 'index.html';">
+                        <li><img src="./img/relogio-de-parede.png" alt="">
+                            <h1>Relógio</h1>
+                        </li>
+                    </div>
+                </div>
+                <div class="menu-2">
+                    <div id="cronometro" onclick="window.location.href = 'cronometro.html'">
+                        <li><img src="./img/relogin.png" alt="">
+                            <h1>Cronômetro</h1>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <div class="centro">
+            <h1 id="crono">00:00.00</h1>
+            <div id="buttons">
+                <button id="iniciar" onclick="executarCronometro();">Iniciar</button>
+                <button id="parar" onclick="pararCronometro();">Limpar</button>
+            </div>
+            <div class="voltas">
+
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+    <script src="./js/cronometro.js"></script>
+</body>
+
+</html>

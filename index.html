@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Clock</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="shortcut icon" href="./img/relogio.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="topo">
+        <div class="logo" onclick="window.location.href = 'index.html';">
+            <img src="./img/relogio.png" alt="" id="logo">
+            <span class="logo-texto">Easy Clock</span>
+        </div>
+
+        <img src="./img/filtro.png" alt="" id="tema">
+        <img src="./img/engrenagem.png" alt="" id="config">
+    </header>
+
+    <div class="container">
+        <div class="menuLateral">
+            <ul id="menu">
+                <div class="menu-1">
+                    <div id="relogio" onclick="window.location.href = 'index.html';">
+                        <li><img src="./img/relogio-de-parede.png" alt="">
+                            <h1>Relógio</h1>
+                        </li>
+                    </div>
+                </div>
+                <div class="menu-2">
+                    <div id="cronometro" onclick="window.location.href = 'cronometro.html'">
+                        <li><img src="./img/relogin.png" alt="">
+                            <h1>Cronômetro</h1>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <div class="centro">
+            <h1 id="tempo">00:00:00</h1>
+            <h5 id="data">-- DE -- DE ----</h5>
+            <p id="local">------</p>
+        </div>
+        <dialog id="popupConfig">
+            <p>Configure a localização</p>
+            <p>escolha o País:</p>
+            <select name="" id="paises"></select>
+            <p>escolha o estado:</p>
+            <select name="" id="estados"></select>
+            <p>escolha a cidade:</p>
+            <select name="" id="cidades"></select>
+            <br>
+            <button id="fecharPopup">Fechar</button>
+        </dialog>
+        <div>
+
+        </div>
+    </div>
+    <script src="./js/relogio.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Bebas Neue', cursive;
+  transition: all 0.3s ease;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+
+}
+
+.topo .logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.topo .logo img {
+  width: 50px;
+}
+
+.topo #tema,
+#config {
+  width: 5%;
+  max-width: 50px;
+  height: 2%;
+}
+
+.topo #tema {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+header {
+  background-color: #015958;
+}
+
+.logo-texto {
+  margin-top: 5px;
+  font-size: 25px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.menuLateral {
+  display: flex;
+  justify-content: space-around;
+  align-items: cente;
+  background-color: #008f8c;
+  width: 15%;
+  max-width: 120px;
+  text-align: center;
+  font-size: 60%;
+  min-height: 100vh;
+}
+
+.menuLateral img {
+  width: 40%;
+  padding-top: 30px;
+}
+
+.centro {
+  display: flex;
+  font-size: 80px;
+  flex-direction: column;
+  margin-left: 120px;
+  margin-top: 120px;
+  text-align: center;
+}
+
+#cronometro:hover,
+#relogio:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+p {
+  font-size: 50px;
+}
+
+#buttons button {
+  width: 100px;
+  height: 50px;
+  font-size: 50%;
+}
+
+.voltas {
+  display: flex;
+  flex-direction: column;
+}
+
+.titles {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.titles p {
+  font-size: 35px;
+}
+
+#config,
+#tema {
+  cursor: pointer;
+}
+
+#popupConfig {
+  padding-top: 20px;
+  border: 2px solid #d4d4d4;
+  outline: 0;
+  width: 50vh;
+  height: 50vh;
+  border-radius: 5%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(0, 143, 140, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(15px);
+  color: #f2f2f2;
+  animation-duration: 0.5s;
+  opacity: 0;
+  justify-content: center;
+  text-align: center;
+
+}
+
+#popupConfig::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+#popupConfig.animacaoEntrada {
+  animation-name: popupEntrada;
+  animation-fill-mode: forwards;
+}
+
+@keyframes popupEntrada {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#popupConfig.animacaoSaida {
+  animation-name: popupSaida;
+  animation-fill-mode: forwards;
+}
+
+@keyframes popupSaida {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+#popupConfig p {
+  font-size: 40px;
+}
+
+#popupConfig select {
+  width: 100px;
+  outline: 0;
+  font-size: 20px;
+  height: 40px;
+}
+#popupConfig #fecharPopup {
+  outline: 0;
+  width: 100px;
+  height: 50px;
+  font-size: 25px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dark {
+  background-color: #222;
+  color: #fff;
+}
+
+.dark .topo {
+  background-color: #333;
+}
+
+.dark .menuLateral {
+  background-color: #444;
+}
+
+.dark #popupConfig {
+  background-color: rgba(50, 50, 50, 0.8);
+  color: #fff;
+}
+
+.dark #popupConfig select {
+  color: #fff;
+  background-color: #555;
+}
+
+.dark img {
+  filter: invert(100%);
+}
