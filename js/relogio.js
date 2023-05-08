@@ -10,22 +10,22 @@ let infoLocal = '';
 let dataNova = '';
 let horarioDate = '';
 let atualizarTempo;
+let temaAtual = 'claro';
 
 document.getElementById('relogio').style.backgroundColor = '#25adab';
 
 document.querySelector('#tema').addEventListener('click', function () {
     const body = document.querySelector('body');
-    let temaAtual = localStorage.getItem("tema");
     body.classList.toggle('dark');
 
     if (temaAtual == 'claro') {
-        document.getElementById('relogio').style.backgroundColor = '#25adab';
-        temaAtual = 'escuro';
-      } else {
         document.getElementById('relogio').style.backgroundColor = '#666';
+        temaAtual = 'escuro';
+    } else {
+        document.getElementById('relogio').style.backgroundColor = '#25adab';
         temaAtual = 'claro';
-      }
-})
+    }
+});
 
 
 
