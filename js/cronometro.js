@@ -3,18 +3,17 @@ let parar = document.getElementById('parar');
 let iniciar = document.getElementById('iniciar');
 let cronometro = document.getElementById('crono');
 let voltas = document.querySelector('.voltas');
-let temaButao = document.querySelector('#tema');
-let temaAtual = 'claro';
 
-temaButao.addEventListener('click', function () {
+document.querySelector('#tema').addEventListener('click', function () {
     const body = document.querySelector('body');
+    let temaAtual = localStorage.getItem("tema");
     body.classList.toggle('dark');
 
     if (temaAtual == 'claro') {
-        document.getElementById('cronometro').style.backgroundColor = '#666';
+        document.getElementById('cronometro').style.backgroundColor = '#25adab';
         temaAtual = 'escuro';
     } else {
-        document.getElementById('cronometro').style.backgroundColor = '#25adab';
+        document.getElementById('cronometro').style.backgroundColor = '#666';
         temaAtual = 'claro';
     }
 })

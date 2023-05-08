@@ -220,3 +220,33 @@ p {
 .dark img {
   filter: invert(100%);
 }
+
+.loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.loader {
+  animation: rodando 1s infinite;
+  border: 15px solid #e5e5e5;
+  border-radius: 50%;
+  border-top-color: #015958;
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+
+@keyframes rodando {
+  to {
+    transform: rotate(1turn);
+  }
+}
+

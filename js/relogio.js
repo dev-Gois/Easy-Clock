@@ -2,27 +2,29 @@
 const configButton = document.querySelector('#config');
 const popupConfig = document.querySelector('#popupConfig');
 const closeButton = document.querySelector('#fecharPopup');
+const loadingOption = document.createElement('option');
+loadingOption.textContent = 'Carregando...';
 
-var infoLocal = '';
-var dataNova = '';
-var horarioDate = '';
+let loadingTime = document.querySelector('#loading');
+let infoLocal = '';
+let dataNova = '';
+let horarioDate = '';
 let atualizarTempo;
-let temaButao = document.querySelector('#tema');
-let temaAtual = 'claro';
 
 document.getElementById('relogio').style.backgroundColor = '#25adab';
 
-temaButao.addEventListener('click', function () {
+document.querySelector('#tema').addEventListener('click', function () {
     const body = document.querySelector('body');
+    let temaAtual = localStorage.getItem("tema");
     body.classList.toggle('dark');
 
     if (temaAtual == 'claro') {
-        document.getElementById('relogio').style.backgroundColor = '#666';
-        temaAtual = 'escuro';
-    } else {
         document.getElementById('relogio').style.backgroundColor = '#25adab';
+        temaAtual = 'escuro';
+      } else {
+        document.getElementById('relogio').style.backgroundColor = '#666';
         temaAtual = 'claro';
-    }
+      }
 })
 
 
@@ -68,9 +70,11 @@ function requisitarDatetime(cidade) {
             }
             clearInterval(atualizarTempo);
             atualizarTempo = setInterval(atualizarHorario, 1000);
+            setTimeout(() => {
+                loadingTime.style.display = 'none';
+              }, 1000);
         })
         .catch(error => console.error(error));
-
 }
 
 configButton.onclick = function () {
@@ -100,11 +104,12 @@ popupConfig.addEventListener('keydown', function (event) {
 });
 
 function preencherPaises() {
+    const selectPaises = document.getElementById('paises');
+    selectPaises.appendChild(loadingOption);
     fetch('https://secure.geonames.org/countryInfoJSON?username=aaaa')
         .then(response => response.json())
         .then(data => {
-            const selectPaises = document.getElementById('paises');
-
+            selectPaises.removeChild(loadingOption);
             data.geonames.forEach(pais => {
                 const option = document.createElement('option');
                 option.value = pais.countryCode;
@@ -120,12 +125,12 @@ function preencherPaises() {
 
 function preencherEstados() {
     const codigoPais = document.getElementById('paises').value;
+    const selectEstados = document.getElementById('estados');
+    selectEstados.appendChild(loadingOption);
     fetch(`https://secure.geonames.org/searchJSON?country=${codigoPais}&adminCode1&username=aaaa`)
         .then(response => response.json())
         .then(data => {
-            const selectEstados = document.getElementById('estados');
             selectEstados.innerHTML = '';
-
             const estadosUnicos = new Set();
             data.geonames.forEach(estado => {
                 if (estado.adminName1 && !estadosUnicos.has(estado.adminName1)) {
@@ -144,13 +149,13 @@ function preencherEstados() {
 
 
 function preencherCidades() {
+    const selectCidades = document.getElementById('cidades');
+    selectCidades.appendChild(loadingOption);
     const estado = document.getElementById('estados').value;
     fetch(`https://secure.geonames.org/searchJSON?q=${estado}&adminCode1&username=aaaa`)
         .then(response => response.json())
         .then(data => {
-            const selectCidades = document.getElementById('cidades');
             selectCidades.innerHTML = '';
-
             const cidadesAdicionadas = {};
 
             data.geonames.forEach(cidade => {
